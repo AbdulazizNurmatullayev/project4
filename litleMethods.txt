@@ -1,0 +1,9 @@
+ public static void countIncrease() {
+        count = count + 1;
+    }
+
+@Override
+    public String toString() {
+        return "RaceCondition { count = " + count + " }";
+    }
+}
