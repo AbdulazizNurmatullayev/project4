@@ -1,0 +1,40 @@
+   public static void countIncreaseWithLocker() {
+        try {
+            lock.lock();
+            Thread.sleep(10);
+            count = count + 1;
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public synchronized static void countIncreaseWithSync() {
+        try {
+            Thread.sleep(10);
+            count = count + 1;
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public synchronized void countIncreaseWithSyncInstance() {
+        try {
+            Thread.sleep(10);
+            count = count + 1;
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void countIncreaseWithSyncBlock() {
+        synchronized (object) {
+            try {
+                Thread.sleep(10);
+                count = count + 1;
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
